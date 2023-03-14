@@ -1,10 +1,11 @@
-% LaTeX definitions for SBC 2001 style
+% LaTeX definitions for IFMS 2023 style
 %
 % Created by Jomi Hubner & Rafael Bordini, june 2001
-% updated march 2005
+% Updated by Ápio Carniello e Silva, Maria Eduarda Tavares e Felipe Flamarini
+% updated december 2023
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{sbc-template}[2001/06/09]
+\ProvidesPackage{ifms-template}[2001/06/09]
 
 % margem sup 3.5 cm: há 1,5 cm para header, + 2 cm para top
 % margem inf 2.5 cm: há 1,5 cm para foot, + 1 cm para bottom
@@ -153,7 +154,7 @@
                                     \bfseries\itshape Abstract.]\itshape}%
       {\endlist}
 
-\newenvironment{resumo}{%
+\newenvironment{resumo}{{\chaptitlefont}%
       \list{}{\advance\topsep by6pt\relax%\small
       \leftmargin=0.0cm
       \labelwidth=\z@
@@ -163,6 +164,30 @@
                                     \bfseries\itshape Resumo.]\itshape}%
       {\endlist}
 
+
+
+% Resumo e abstracts em diferentes idiomas - NBR 14724/2011
+%\newenvironment{resumo}[1][\resumoname]{%
+%   \PRIVATEbookmarkthis{#1}
+%   \renewcommand{\abstractnamefont}{\chaptitlefont}
+%   \renewcommand{\abstractname}{\ABNTEXchapterupperifneeded{#1}}
+%   \begin{abstract}
+%   \SingleSpacing
+%  }{\end{abstract}\PRIVATEclearpageifneeded}
+  
+%\newenvironment{resumoumacoluna}[1][\resumoname]{%
+%   \PRIVATEbookmarkthis{#1}
+%   \renewcommand{\abstractnamefont}{\chaptitlefont}
+%   \renewcommand{\abstractname}{\ABNTEXchapterupperifneeded{#1}}
+%   \begin{onecolabstract}
+%   \SingleSpacing
+%}{\end{onecolabstract}\PRIVATEclearpageifneeded}
+% ---
+
+
+
+
+
 \makeatletter
 \let\@fnsymbol\@arabic
-\makeatsymbol
+\makeatother
