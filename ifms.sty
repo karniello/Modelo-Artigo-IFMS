@@ -5,7 +5,7 @@
 % updated december 2023
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{ifms-template}[2001/06/09]
+\ProvidesPackage{ifms}[2001/06/09]
 
 % margem sup 3.5 cm: há 1,5 cm para header, + 2 cm para top
 % margem inf 2.5 cm: há 1,5 cm para foot, + 1 cm para bottom
@@ -22,6 +22,15 @@
 \setlength{\captionmargin}{0.8cm}
 \renewcommand{\captionfont}{\sffamily\footnotesize\bfseries}
 \renewcommand{\captionlabeldelim}{.}
+
+% configurando caption de quadro
+\RequirePackage{trivfloat}
+\RequirePackage{float}
+\trivfloat{quadro}
+\floatstyle{plaintop}
+
+% configurando resumo e abstract
+\RequirePackage{abstract}
 
 % font
 \RequirePackage{times}
@@ -78,6 +87,8 @@
 \setlength\leftmarginiv  {\leftmargini}
 \setlength  \labelsep    {.5em}
 \setlength  \labelwidth  {\leftmargini}
+\setlength{\absleftindent}{0em}
+\setlength{\absrightindent}{0em}
 \addtolength\labelwidth  {-\labelsep}
 \def\@listI{\leftmargin\leftmargini
             \parsep 0\p@ \@plus1\p@ \@minus\p@
@@ -144,26 +155,25 @@
 \let\maketitleOLD\maketitle
 \renewcommand{\maketitle}{\maketitleOLD\thispagestyle{empty}}
 
-\renewenvironment{abstract}{%
-      \list{}{\advance\topsep by6pt\relax%\small
-      \leftmargin=0.0cm
-      \labelwidth=\z@
-      \listparindent=\z@
-      \itemindent\listparindent
-      \rightmargin\leftmargin}\item[\hskip\labelsep
-                                    \bfseries\itshape Abstract.]\itshape}%
-      {\endlist}
+%\renewenvironment{abstract}{%
+%      \list{}{\advance\topsep by6pt\relax%\small
+%      \leftmargin=0.0cm
+%      \labelwidth=\z@
+%      \listparindent=\z@
+%      \itemindent\listparindent
+%      \rightmargin\leftmargin}\item[\hskip\labelsep
+%                                    \bfseries\itshape Abstract.]\itshape}%
+%      {\endlist}
 
-\newenvironment{resumo}{{\chaptitlefont}%
-      \list{}{\advance\topsep by6pt\relax%\small
-      \leftmargin=0.0cm
-      \labelwidth=\z@
-      \listparindent=\z@
-      \itemindent\listparindent
-      \rightmargin\leftmargin}\item[\hskip\labelsep
-                                    \bfseries\itshape Resumo.]\itshape}%
-      {\endlist}
-
+%\newenvironment{resumo}{ %{\chaptitlefont}%
+%      \list{}{\advance\topsep by6pt\relax%\small
+%      \leftmargin=0.0cm
+%      \labelwidth=\z@
+%      \listparindent=\z@
+%      \itemindent\listparindent
+%      \rightmargin\leftmargin}\item[\hskip\labelsep
+%                                    \bfseries\itshape Resumo.]\itshape}%
+%      {\endlist}
 
 
 % Resumo e abstracts em diferentes idiomas - NBR 14724/2011
@@ -183,10 +193,6 @@
 %   \SingleSpacing
 %}{\end{onecolabstract}\PRIVATEclearpageifneeded}
 % ---
-
-
-
-
 
 \makeatletter
 \let\@fnsymbol\@arabic
